@@ -92,7 +92,7 @@ angular.module('takhshilaApp', [
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
           event.preventDefault();
-          $state.go('main');
+          $state.go('teach');
         }
       });
     });

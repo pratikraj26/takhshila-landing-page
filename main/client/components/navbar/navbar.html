@@ -17,7 +17,7 @@
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ng-if = "!loggedIn" class="featured"><a href="#" ng-click = "showLoginModal($event)">Login / SignUp</a></li>
+          <li ng-if = "!loggedIn" class="featured"><a href="#" ng-click = "showLoginModal($event)">Login</a></li>
           <li ng-if = "loggedIn">
             <notification-counter notification-count="notificationCount" notifications="notifications" update-notification = "updateNotification" confirm-class="confirmClass" deny-class="denyClass"></notification-counter>
           </li>
@@ -28,14 +28,12 @@
               </a>
               <ul role="menu" class="dropdown-menu">
                   <li><a ui-sref="profile()">Profile</a></li>
-                  <li><a ui-sref="class()">Classes</a></li>
                   <li><a ui-sref="wallet()">Wallet</a></li>
                   <li><a ui-sref="settings()">Settings</a></li>
                   <li class="divider"></li>
                   <li><a href="#" ng-click = "logout()">Logout</a></li>
               </ul>
           </li>
-          <li ng-if = "!loggedIn" ng-class="{'sliding-middle-out': !navStick}"><a href="/teach">Are you a teacher?</a></li>
         </ul>
     </div>
   </div>

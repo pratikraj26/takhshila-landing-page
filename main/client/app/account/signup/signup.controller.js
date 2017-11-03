@@ -16,24 +16,8 @@ angular.module('takhshilaApp')
       phone: null,
       phoneNumber: null,
       password: null,
-      isTeacher: false,
+      isTeacher: true,
       referralID: null
-    }
-
-    var fetchReferralDetails = function(referralID){
-      return $http.get('/api/v1/users/referral/' + referralID);
-    }
-
-    if(referralID){
-      fetchReferralDetails(referralID)
-      .then(function(response){
-        $scope.registerFormData.referralID = referralID;
-        $scope.giftFrom = response.data.name.firstName;
-      })
-      .catch(function(err){
-        console.log(err);
-        $scope.registerFormData.referralID = null;
-      })
     }
 
     $scope.selectCountry = function(index){

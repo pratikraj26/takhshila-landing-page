@@ -17,13 +17,6 @@ angular.module('takhshilaApp')
         navStick: true,
         authenticate: false
       })
-      .state('signupReferral', {
-        url: '/signup/:referralID',
-        templateUrl: 'app/account/signup/signup.html',
-        controller: 'SignupCtrl',
-        navStick: true,
-        authenticate: false
-      })
       .state('forget-password', {
         url: '/forget-password',
         templateUrl: 'app/account/forget-password/forget-password.html',

@@ -16,10 +16,10 @@ angular.module('takhshilaApp')
           $rootScope.loggedIn = loggedIn;
           if(typeof $state.current.authenticate !== "undefined"){
             if($state.current.authenticate && !loggedIn){
-              $state.go('main');
+              $state.go('teach');
             }
             if(!$state.current.authenticate && loggedIn){
-              $state.go('main');
+              $state.go('profile');
             }
           }
           $scope.$watch(function(){
@@ -28,10 +28,10 @@ angular.module('takhshilaApp')
             $rootScope.loggedIn = data;
             if(typeof $state.current.authenticate !== "undefined"){
               if($state.current.authenticate && !data){
-                $state.go('main');
+                $state.go('teach');
               }
               if(!$state.current.authenticate && data){
-                $state.go('main');
+                $state.go('profile');
               }
             }
             $rootScope.currentUser = Auth.getCurrentUser();
