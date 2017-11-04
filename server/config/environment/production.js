@@ -3,40 +3,11 @@
 // Production specific configuration
 // =================================
 module.exports = {
-  siteBase: 'https://www.takhshila.com',
-  // Server IP
-  ip:       process.env.OPENSHIFT_NODEJS_IP ||
-            process.env.IP ||
-            undefined,
+	siteBase: 'https://www.takhshila.com',
 
-  // Server port
-  port:     process.env.OPENSHIFT_NODEJS_PORT ||
-            process.env.PORT ||
-            8080,
+	ip: 	process.env.OPENSHIFT_NODEJS_IP ||
+			process.env.IP ||
+			undefined,
 
-  // MongoDB connection options
-  mongo: {
-    uri:    process.env.MONGOLAB_URI ||
-            process.env.MONGOHQ_URL ||
-            process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
-            'mongodb://localhost/takhshila'
-  },
-
-  msg91: {
-    apiBase: "http://api.msg91.com/api/sendhttp.php",
-    authkey: "181964ASuehXXhrB59fb3097",
-    sender: "TKHSLA",
-    route: 4
-  },
-  
-  payu: {
-    merchantID: 5804204,
-    key: 'vQqpeAeQ',
-    salt: 'WA7eXxUoRF',
-    authorizationHeader: '1mCD5YnSWir3SceFM1PP8BJ3ACgv1wkypEAsWdQUPqk=',
-    host: 'https://secure.payumoney.com',
-    path: {
-      paymentResponse: '/payment/op/getPaymentResponse'
-    }
-  }
+	port:     8080
 };
