@@ -75,7 +75,6 @@ angular.module('takhshilaApp')
     }
 
     $scope.showVideoModal = function(index){
-      console.log("videoClicked", index);
       var parentEl = angular.element(document.body);
       $mdDialog.show({
         templateUrl: 'components/videoPlayerModal/videoPlayerModal.html',
@@ -113,7 +112,6 @@ angular.module('takhshilaApp')
           }
         }
         checkConnectedTime();
-        console.log($scope.events);
         uiCalendarConfig.calendars["availabilityCalendar"].fullCalendar('rerenderEvents');
       })
       .error(function(err){
@@ -184,7 +182,6 @@ angular.module('takhshilaApp')
           left: '',
           center: 'title',
           right: 'today prev,next'
-          // right: ''
         },
         defaultView: 'agendaWeek',
         eventOverlap: false,
@@ -218,24 +215,16 @@ angular.module('takhshilaApp')
       };
       var _weekDays = ['sunday', 'monday', 'tuesday', 'wednessday', 'thursday', 'friday', 'saturday'];
       for(var i = 0; i < $scope.events.length; i++){
-        // $scope.events[i].start = moment($scope.events[i].start, 'MMM DD, YYYY HH:mm').format();
-        // $scope.events[i].end = moment($scope.events[i].end, 'MMM DD, YYYY HH:mm').format();
         var day = _weekDays[moment($scope.events[i].start).weekday()];
-        // var startHour = moment($scope.events[i].start).hour();
-        // var startMinute = moment($scope.events[i].start).minute();
-        // var endHour = moment($scope.events[i].end).hour();
-        // var endMinute = moment($scope.events[i].end).minute();
         _availability[day].push({
           start: moment($scope.events[i].start, 'MMM DD, YYYY HH:mm').format('HH:mm'),
           end: moment($scope.events[i].end, 'MMM DD, YYYY HH:mm').format('HH:mm')
         })
       }
-      console.log(_availability);
       userFactory.updateAvailability({availability: _availability})
       .success(function(response){
         $scope.edit.availability.progress = false;
         $scope.cancelEditAvailability();
-        console.log(response);
       })
       .error(function(err){
         $scope.edit.availability.progress = false;
@@ -309,7 +298,6 @@ angular.module('takhshilaApp')
         .success(function(response){
           $scope.edit.basicInfo.progress = false;
           $scope.currentUser.basicInfo = response.basicInfo;
-          console.log(response);
           $scope.edit.basicInfo.editing = false;
         })
         .error(function(err){
@@ -321,7 +309,6 @@ angular.module('takhshilaApp')
     $scope.cancelEditBasicInfo = function(){
       $scope.edit.basicInfo.editing = false;
       $scope.edit.basicInfo.data = null;
-      console.log($scope.currentUser.basicInfo);
     }
 
     $scope.editRatePerHour = function(evt){
@@ -343,7 +330,6 @@ angular.module('takhshilaApp')
         .success(function(response){
           $scope.edit.ratePerHour.progress = false;
           $scope.currentUser.ratePerHour = response.ratePerHour;
-          console.log(response);
           $scope.edit.ratePerHour.editing = false;
         })
         .error(function(err){
@@ -414,8 +400,6 @@ angular.module('takhshilaApp')
       .success(function(response){
         $scope.currentUser.specialization[index].progress = false;
         delete $scope.currentUser.specialization.splice(index, 1);
-        console.log(response);
-        console.log($scope.currentUser.specialization);
       })
       .error(function(err){
         $scope.currentUser.specialization[index].progress = false;
@@ -425,9 +409,6 @@ angular.module('takhshilaApp')
     $scope.setLevel = function(index, level){
       $scope.edit.specialization.data[index].level = level;
     }
-
-
-
     $scope.showAddEducationModal = function($event, educationData){
       if(educationData === undefined){
         educationData = null;
@@ -448,7 +429,6 @@ angular.module('takhshilaApp')
 
     $scope.editEducation = function(index){
       var edducationData = $rootScope.currentUser.education[index];
-      console.log(edducationData);
       $scope.showAddEducationModal('', edducationData);
     }
 
@@ -487,11 +467,6 @@ angular.module('takhshilaApp')
         console.log('You cancelled delete');
       });
     }
-
-
-
-
-
 
     $scope.showAddExperienceModal = function($event, experienceData){
       if(experienceData === undefined){
@@ -551,9 +526,6 @@ angular.module('takhshilaApp')
         console.log('You cancelled delete');
       });
     }
-
-
-
 
     $scope.getLocation = function(index, searcTerm) {
       $scope.edit.specialization.data[index].loadingResults = true;

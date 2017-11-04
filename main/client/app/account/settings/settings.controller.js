@@ -36,7 +36,6 @@ angular.module('takhshilaApp')
       userFactory.saveSettings(updateData)
       .success(function(response){
         $scope.saving = false;
-        console.log(response);
         if(response.success){
           $rootScope.currentUser.name = response.data.name;
           if(response.phoneNumberUpdated){

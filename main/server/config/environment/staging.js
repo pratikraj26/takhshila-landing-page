@@ -39,13 +39,5 @@ module.exports = {
     route: 4
   },
   
-  bulkSMS: {
-    apiBase: "http://login.bulksmsgateway.in/sendmessage.php",
-    user: "pratikraj26",
-    password: "Jh@ri@123",
-    sender: "TKHSLA",
-    type: 3
-  },
-  
   seedDB: true
 };

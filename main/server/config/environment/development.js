@@ -21,28 +21,11 @@ module.exports = {
 	},
 	// sslServer: true,
 
-	bulkSMS: {
-		apiBase: "http://login.bulksmsgateway.in/sendmessage.php",
-		user: "pratikraj26",
-		password: "Jh@ri@123",
-		sender: "TKHSLA",
-		type: 3
-	},
-
 	msg91: {
 		apiBase: "http://api.msg91.com/api/sendhttp.php",
 		authkey: "181964ASuehXXhrB59fb3097",
 		sender: "TKHSLA",
 		route: 4
-	},
-
-	textLocal: {
-		apiBase: "https://api.textlocal.in/send",
-		apiKey: "Yalfd/Icifs-st5uslQnVGbeqSpSnOkar0VcL4ZVV7",
-		user: "pratikraj26@gmail.com",
-		password: "Jh@ri@123",
-		sender: "TKHSLA",
-		hash: "22d8a965b44e3f8d9271cd2bf95ed482b3b1539e639a9df1251c269318fada30"
 	},
 	
 	seedDB: true
