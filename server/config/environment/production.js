@@ -9,5 +9,7 @@ module.exports = {
 			process.env.IP ||
 			undefined,
 
-	port:     8080
+	port:     8082,
+
+	sslServer: false,
 };
